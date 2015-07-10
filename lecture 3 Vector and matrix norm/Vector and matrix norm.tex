@@ -1,0 +1,414 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx} % more modern
+%\usepackage{times}
+\usepackage{helvet}
+\usepackage{courier}
+\usepackage{epsf}
+\usepackage{amsmath,amssymb,amsfonts,verbatim}
+\usepackage{subfigure}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{enumerate}
+%\usepackage{algorithmic}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsthm}
+
+\def\A{{\bf A}}
+\def\a{{\bf a}}
+\def\B{{\bf B}}
+\def\b{{\bf b}}
+\def\C{{\bf C}}
+\def\c{{\bf c}}
+\def\D{{\bf D}}
+\def\d{{\bf d}}
+\def\E{{\bf E}}
+\def\e{{\bf e}}
+\def\F{{\bf F}}
+\def\f{{\bf f}}
+\def\G{{\bf G}}
+\def\g{{\bf g}}
+\def\k{{\bf k}}
+\def\K{{\bf K}}
+\def\H{{\bf H}}
+\def\I{{\bf I}}
+\def\L{{\bf L}}
+\def\M{{\bf M}}
+\def\m{{\bf m}}
+\def\n{{\bf n}}
+\def\N{{\bf N}}
+\def\BP{{\bf P}}
+\def\R{{\bf R}}
+\def\BS{{\bf S}}
+\def\s{{\bf s}}
+\def\t{{\bf t}}
+\def\T{{\bf T}}
+\def\U{{\bf U}}
+\def\u{{\bf u}}
+\def\V{{\bf V}}
+\def\v{{\bf v}}
+\def\W{{\bf W}}
+\def\w{{\bf w}}
+\def\X{{\bf X}}
+\def\Y{{\bf Y}}
+\def\Q{{\bf Q}}
+\def\x{{\bf x}}
+\def\y{{\bf y}}
+\def\Z{{\bf Z}}
+\def\z{{\bf z}}
+\def\0{{\bf 0}}
+\def\1{{\bf 1}}
+
+
+\def\hx{\hat{\bf x}}
+\def\tx{\tilde{\bf x}}
+\def\ty{\tilde{\bf y}}
+\def\tz{\tilde{\bf z}}
+\def\hd{\hat{d}}
+\def\HD{\hat{\bf D}}
+
+\def\MA{{\mathcal A}}
+\def\MF{{\mathcal F}}
+\def\MR{{\mathcal R}}
+\def\MG{{\mathcal G}}
+\def\MI{{\mathcal I}}
+\def\MN{{\mathcal N}}
+\def\MO{{\mathcal O}}
+\def\MT{{\mathcal T}}
+\def\MX{{\mathcal X}}
+\def\SW{{\mathcal {SW}}}
+\def\MW{{\mathcal W}}
+\def\MY{{\mathcal Y}}
+\def\BR{{\mathbb R}}
+\def\BP{{\mathbb P}}
+
+\def\bet{\mbox{\boldmath$\beta$\unboldmath}}
+\def\epsi{\mbox{\boldmath$\epsilon$}}
+
+\def\etal{{\em et al.\/}\,}
+\def\tr{\mathrm{tr}}
+\def\rk{\mathrm{rk}}
+\def\diag{\mathrm{diag}}
+\def\dg{\mathrm{dg}}
+\def\argmax{\mathop{\rm argmax}}
+\def\argmin{\mathop{\rm argmin}}
+\def\vecd{\mathrm{vec}}
+
+\def\ph{\mbox{\boldmath$\phi$\unboldmath}}
+\def\vp{\mbox{\boldmath$\varphi$\unboldmath}}
+\def\pii{\mbox{\boldmath$\pi$\unboldmath}}
+\def\Ph{\mbox{\boldmath$\Phi$\unboldmath}}
+\def\pss{\mbox{\boldmath$\psi$\unboldmath}}
+\def\Ps{\mbox{\boldmath$\Psi$\unboldmath}}
+\def\muu{\mbox{\boldmath$\mu$\unboldmath}}
+\def\Si{\mbox{\boldmath$\Sigma$\unboldmath}}
+\def\lam{\mbox{\boldmath$\lambda$\unboldmath}}
+\def\Lam{\mbox{\boldmath$\Lambda$\unboldmath}}
+\def\Gam{\mbox{\boldmath$\Gamma$\unboldmath}}
+\def\Oma{\mbox{\boldmath$\Omega$\unboldmath}}
+\def\De{\mbox{\boldmath$\Delta$\unboldmath}}
+\def\de{\mbox{\boldmath$\delta$\unboldmath}}
+\def\Tha{\mbox{\boldmath$\Theta$\unboldmath}}
+\def\tha{\mbox{\boldmath$\theta$\unboldmath}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{example}{Example}[section]
+
+\def\probin{\mbox{\rotatebox[origin=c]{90}{$\vDash$}}}
+
+\def\calA{{\cal A}}
+
+
+
+%this is a comment
+
+%use this as a template only... you may not need the subsections,
+%or lists however they are placed in the document to show you how
+%do it if needed.
+
+
+%THINGS TO REMEMBER
+%to compile a latex document - latex filename.tex
+%to view the document        - xdvi filename.dvi
+%to create a ps document     - dvips filename.dvi
+%to create a pdf document    - dvipdf filename.dvi
+%{\bf TEXT}                  - bold font TEXT
+%{\it TEXT}                  - italic TEXT
+%$ ... $                     - places ... in math mode on same line
+%$$ ... $$                   - places ... in math mode on new line
+%more info at www.cs.wm.edu/~mliskov/cs423_fall04/tex.html
+
+
+\setlength{\oddsidemargin}{.25in}
+\setlength{\evensidemargin}{.25in}
+\setlength{\textwidth}{6in}
+\setlength{\topmargin}{-0.4in}
+\setlength{\textheight}{8.5in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\notes}[5]{
+	\renewcommand{\thepage}{#1 - \arabic{page}}
+	\noindent
+	\begin{center}
+	\framebox{
+		\vbox{
+		\hbox to 5.78in { { \bf Numerical Linear Algebra}
+		\hfill #2}
+		\vspace{4mm}
+		\hbox to 5.78in { {\Large \hfill #5 \hfill} }
+		\vspace{2mm}
+		\hbox to 5.78in { {\it #3 \hfill #4} }
+		}
+	}
+	\end{center}
+	\vspace*{4mm}
+}
+
+\newcommand{\ho}[5]{\notes{#1}{}{Professor: Zhihua Zhang}{}{Lecture Notes #1:Norms of Vectors and Matrix}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%begins a LaTeX document
+\setcounter{section}{0}
+\setcounter{subsection}{0}
+\setcounter{theorem}{0}
+\setcounter{definition}{0}
+\setcounter{example}{0}
+\begin{document}
+\ho{3}{2014.03.08}{Moses Liskov}{Name}{Lecture title}
+
+
+\section{Vector Norms}
+
+\begin{definition}
+[Vector Norm] A vector norm $||\x||$ is any mapping from $\BR^n$ to $\BR$ with the following four properties. 
+\begin{itemize}
+		\item $||\x||\ge 0$ for all $\x\in \BR^n$
+		\item $||\x||=0$ iff $\x=0$
+		\item $||\x+\y||\le ||\x||+||\y||$, $\x,\y\in \BR^n$
+		\item $||\alpha \x||=|\alpha|||\x||$, $\x\in \BR^n$
+\end{itemize}
+\end{definition}
+
+\begin{theorem}
+	$||\cdot||$ is convex.
+\end{theorem}
+
+\begin{proof}
+	For any $\alpha\in [0,1]$ and $\x,\y\in \BR^n$,
+	$$||\alpha \x + (1-\alpha)\y|| \le ||\alpha \x|| + ||(1-\alpha)\y||=\alpha||\x||+(1-\alpha)||\y||$$
+\end{proof}
+
+\begin{definition}
+[p-norm] Let $p\le 1$ be a real number.
+$$||\x||_p=\left( \sum_{i=1}^n |x_i|^p \right)^{\frac{1}{p}} $$
+\end{definition}
+\begin{example}	
+	\[
+	\begin{aligned}
+	&||\x||_1 =\sum_{i=1}^n|x_i| \\
+	&||\x||_2 =\left( \sum_{i=1}^n x_i^2 \right)^{\frac{1}{2}} \\
+	&||\x||_\infty=\max_i(|x_i|)
+	\end{aligned}
+	\]
+\end{example}
+
+\begin{definition}
+	[0-norm] 
+	$$||\x||_0 = \#(i|x_i\ne 0)$$ 
+	that is a total number of non-zero elements in a vector. 
+\end{definition}
+{\bf Remark}: Strictly speaking, $||\cdot||_0$ is not a norm as it doesn't satisfy the property 4 of the vector norm definition. 
+
+\subsection{Inner Products and Norms}
+\begin{theorem}
+	[Cauchy-Schwarz Inequality] For all $\x,\y\in \BR^n$, 
+	$$|\x^T\y|=|<\x,\y>| \le \sqrt{<\x,\x>}\sqrt{<\y,\y>}$$
+\end{theorem}
+\begin{theorem}
+	[H\"{o}lder's Inequality] For all $\x,\y\in \BR^n$, $p,q\in \BR$, and $\frac{1}{p}+\frac{1}{q}=1$, then 
+	$$|\x^T\y|\le ||\x||_p ||\y||_q$$
+\end{theorem}
+\begin{theorem}
+	For all $\x\in \BR^n$,
+	\[
+	\begin{aligned}
+	||\x||_2 &\le ||\x||_1 \le \sqrt{n}||\x||_2 \\
+	||\x||_\infty &\le ||\x||_2 \le \sqrt{n}||\x||_\infty \\
+	||\x||_\infty &\le ||\x||_1 \le n||\x||_\infty 
+	\end{aligned}
+	\]
+	
+\end{theorem}
+
+\begin{theorem}
+	Let $||\cdot||_\alpha$ and $||\cdot||_\beta$ be two norms on $\BR^n$. There are two constants $c_1,c_2\ge 0$, such that for all $\x\in \BR^n$, 
+	$$c_1||\x||_\alpha\le ||\x||_\beta \le c_2 ||\x||_\alpha$$
+\end{theorem}
+
+\subsection{Convergence}
+A sequence $\x^{(1)},\x^{(2)},\dots$ where each $\x^{(i)}\in \BR^n$ is said to converge to $\x\in \BR^n$ if 
+\[
+\lim_{k\to\infty}||\x^{(k)}-\x||=0
+\]
+
+A sequence $\x^{(1)},\x^{(2)},\dots$ is called Cauchy if for all $\epsilon>0$ there exists a positive integer $N(\epsilon)$ such that 
+$$n,m\ge N(\epsilon) \ \  \Longrightarrow \ \   ||\x^{(n)}-\x^{(m)}||\le\epsilon$$
+
+\subsection{Dual Norms}
+\begin{definition}
+	Let $||\cdot||$ be a norm on $\BR^n$, the function 
+	$$||\y||_D =\max_{||\x||=1}|\y^T\x|=\max_{||\x||=1}\y^T\x$$
+	is the dual norm of $||\cdot||$.
+\end{definition}
+\begin{theorem}
+	The dual norm is a norm.
+\end{theorem}
+\begin{proof}
+	(1) and (4) is obvious. 
+	
+	(2) If $\y\ne0$, then $||\y||_D=\max_{||\x||=1}|\y^T\x|\ge \left|\y^T\frac{\y}{||\y||}\right|=\frac{||\y||_2^2}{||\y||}\ge 0$. 
+	
+	(3) \[
+	\begin{aligned}
+	||\y+\z||_D&=\max_{||\x||=1}|(\y+\z)^T\x| \\
+	&\le \max_{||\x||=1}(|\y^T\x|+|\z^T\x|) \\
+	&\le  \max_{||\x||=1}|\y^T\x|+\max_{||\x||=1}|\z^T\x| \\
+	&=||\y||_D+||\z||_D 
+	\end{aligned}
+	\]
+\end{proof}
+	
+\begin{lemma}
+	Let $||\cdot||$ be a norm and $||\cdot||_D$ be its dual norm, for all $\x,\y\in \BR^n$,
+	\[
+	\begin{aligned}
+	||\y^T\x||_D&\le  ||\x||\cdot||\y||_D \\
+||\y^T\x||_D &\le  ||\x||_D\cdot||\y||
+	\end{aligned}
+	\]
+	
+\end{lemma}
+\begin{proof}
+	$$||\y||_D=\max_{||\z||=1}|\y^T\z|\ge \left|\y^T\frac{\x}{||\x||}\right| =\frac{|\y^T\x|}{||\x||}$$
+\end{proof}	
+
+\begin{example}
+	$$|\y^T\x|=|\sum_{i=1}^ny_ix_i|\le \sum_{i=1}^n|y_i|\cdot|x_i| \le \max_i|y_i|\sum_{i=1}^n|x_i|=||\y||_\infty||\x||_1$$
+\end{example}
+\begin{example}
+	$$|\x^T\y|\le ||\x||_2\cdot||\y||_2$$
+\end{example}
+
+\begin{theorem}
+	Let $||\cdot||$ be a vector norm on $\BR^n$, and $||\cdot||_D$ be its dual norm, and $c>0$ be given, then $||\x||=c||\x||_D$ for all $\x\in\BR^n$ iff $||\cdot||=\sqrt{c}||\cdot||_2$. In particular, $||\x||=||\x||_D$ iff $||\cdot||$ is the l-2 norm $||\cdot||_2$.
+\end{theorem}
+\begin{proof}
+	(a) If $||\cdot||=\sqrt{c}||\cdot||_2$ and $\x\in\BR^n$, then 
+	$$||\x||_D=\max_{||\y||=1}|\x^T\y|=\max_{||\y||=1}\left|\x^T\frac{\sqrt{c}\y}{\sqrt{c}}\right|=\max_{||\z||_2=1}\frac{|\x^T\z|}{\sqrt{c}}=\frac{1}{\sqrt{c}}||\x||_{2.D}=\frac{1}{\sqrt{c}}||\x||_2=\frac{1}{c}||\x||$$
+
+(b) If $||\cdot||=c||\cdot||_D$, then 
+$$||\x||_2^2=\x^T\x \le ||\x||\cdot||\x||_D=\frac{1}{c}||\x||^2$$
+So $||\x||\ge \sqrt{c}||\x||_2$.
+\[
+\begin{aligned}
+\frac{1}{c}||\x||=||\x||_D&=\max_{||\y||=1}|\x^T\y| \\
+&=\max_{\y\ne0}\left|\x^T\frac{\y}{||\y||}\right| \\
+&=\max_{\y\ne0}\left|\x^T\y\frac{||\y||_2}{||\y||_2}\frac{1}{||\y||}\right| \\
+&=\max_{\y\ne0}\left|\x^T\frac{\y}{||\y||_2}\right| \frac{||\y||_2}{||\y||} \\
+&\le \frac{1}{\sqrt{c}}\max_{\y\ne 0}\left|\x^T\frac{\y}{||\y||_2}\right| \\
+&=\frac{1}{\sqrt{c}}||\x||_2
+\end{aligned}
+\]
+So $||\x|| = \sqrt{c}||\x||_2$ because $||\x||\ge \sqrt{c}||\x||_2$ and $||\x||\le \sqrt{c}||\x||_2$.
+
+\end{proof}
+
+\section{Matrix Norms}
+\begin{definition}
+	$f:\BR^{m\times n} \longrightarrow \BR$ is a matrix norm if the following properties hold,
+	\begin{itemize}
+		\item $f(\A)\ge 0$, for all $\A\in\BR^{m\times n}$
+		\item $f(\A)= 0$ iff $\A=0$
+		\item $f(\A+\B)\le f(\A)+f(\B)$, for all $\A,\B\in\BR^{m\times n}$  
+		\item $f(\alpha\A)=|\alpha|f(\A)$, for all $\alpha\in\BR$, $\A\in\BR^{m\times n}$ 
+	\end{itemize}
+\end{definition}
+
+\begin{definition}
+	[F-norm] $$||\A||_F=\left(\sum_{i,j}A_{ij}^2\right)^\frac{1}{2}=tr(\A\A^T)^\frac{1}{2}$$
+\end{definition}
+
+\begin{definition}
+	Let $||\cdot||$ be a matrix norm, $\A\in\BR^{m\times n}$, $\B\in\BR^{n\times p}$. we say $||\cdot||$ be consistent if $||\A\B|| \le ||\A||\cdot||\B||$.
+\end{definition}
+{\bf Remark}: Not all matrix norms are consistent. 
+
+\begin{definition}
+	Let $\A\in\BR^{m\times n}$, $||\cdot||$ be a vector norm on $\BR^n$, then 
+	$$|||\A|||=\underset{\x\ne 0} {\mathrm{sup}}\frac{||\A\x||}{||\x||}=\max_{||\x||=1}||\A\x||$$
+	is called an operator norm or induced norm.
+\end{definition}
+
+\begin{theorem}
+	An operator norm is a consistent matrix norm.
+\end{theorem}
+\begin{proof}
+	(1) If $\A\ne 0$, there exists some $\hat{\x}\in \BR^n$ such that $\A\hat{\x}\ne 0$. So we have $||\hat{\x}||>0$, $||\A\hat{\x}||>0$,
+	$$|||\A|||=\max_{\x\ne0}\frac{||\A\x||}{||\x||}\ge \frac{||\A\hat{\x}||}{||\hat{\x}||}> 0$$
+	
+	(2) $$|||\alpha\A|||=\max_{\x\ne0}\frac{||\alpha\A\x||}{||\x||}=|\alpha|\cdot|||\A|||$$
+	
+	(3) $$|||\A+\B|||=\max_{\x\ne0}\frac{||(\A+\B)\x||}{||\x||}\le \max_{\x\ne0}\frac{||\A\x||+||\B\x||}{||\x||} \le \max_{\x\ne0}\frac{||\A\x||}{||\x||} + \max_{\x\ne0}\frac{||\B\x||}{||\x||} = |||\A||| + |||\B|||$$ 
+	
+	(4) $$||\A\B\x|| \le |||\A|||\cdot||\B\x||\le |||\A|||\cdot|||\B|||\cdot||\x||$$
+	which means that $$\frac{||\A\B\x||}{||\x||} \le |||\A|||\cdot |||\B|||$$ is true for all $\x\ne 0$, so 
+	$$|||\A\B|||\le |||\A|||\cdot |||\B|||$$
+\end{proof}
+{\bf Remark}: Not all consistent matrix norms are operator norms. 
+
+\begin{definition} For $p\ge 1$, 
+	$$|||\A|||_p=\max_{\x\ne} \frac{||\A\x||_p}{||\x||_p}$$
+\end{definition} 
+
+\begin{theorem}
+	$$||\Q\A\Z||_F=||\A||_F$$ and $$||\Q\A\Z||_2=||\A||_2$$ for $\Q\Q^T=\Q^T\Q=\I_m$ and $\Z\Z^T=\Z^T\Z=\I_n$.
+\end{theorem}
+
+\begin{proof}
+	$$||\Q\A\Z||_F=tr(\Q\A\Z\Z^T\A^T\Q^T)^\frac{1}{2}=tr(\Q\A\A^T\Q^T)^\frac{1}{2}=tr(\A\A^T)^\frac{1}{2}=||\A||_F$$
+	$$||\Q\A\Z||_2=\max_{\x\ne0}\frac{||\Q\A\Z\x||_2}{||\x||_2}=\max_{\y\ne0}\frac{||\Q\A\y||_2}{||\y||_2}=\max_{\y\ne0}\frac{||\A\y||_2}{||\y||_2}=||\A||_2$$
+\end{proof}
+
+\begin{theorem}
+	\[
+	\begin{aligned}
+	|||\A|||_\infty& =\max_{\x\ne0} \frac{||\A\x||_\infty}{||\x||_\infty}=\max_{i}\sum_j|A_{ij}| \\
+	|||\A|||_1&=\max_{\x\ne0} \frac{||\A\x||_1}{||\x||_1}=|||\A^T|||_\infty=\max_{j}\sum_i|A_{ij}|
+	\end{aligned}
+	\]
+\end{theorem}
+
+\begin{theorem}
+	\[
+	\begin{aligned}
+	|||\A|||_2 &=\max_{\x\ne0} \frac{||\A\x||_2}{||\x||_2}=\sqrt{\lambda_{max}(\A^T\A)} \\
+	|||\A|||_2 &=|||\A^T|||_2
+	\end{aligned}
+	\]
+\end{theorem}
+
+\end{document}
+
+
+
+
