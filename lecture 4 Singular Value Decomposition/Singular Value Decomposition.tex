@@ -1,0 +1,269 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx} % more modern
+%\usepackage{times}
+\usepackage{helvet}
+\usepackage{courier}
+\usepackage{epsf}
+\usepackage{amsmath,amssymb,amsfonts,verbatim}
+\usepackage{subfigure}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{enumerate}
+%\usepackage{algorithmic}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsthm}
+
+\def\A{{\bf A}}
+\def\a{{\bf a}}
+\def\B{{\bf B}}
+\def\b{{\bf b}}
+\def\C{{\bf C}}
+\def\c{{\bf c}}
+\def\D{{\bf D}}
+\def\d{{\bf d}}
+\def\E{{\bf E}}
+\def\e{{\bf e}}
+\def\F{{\bf F}}
+\def\f{{\bf f}}
+\def\G{{\bf G}}
+\def\g{{\bf g}}
+\def\k{{\bf k}}
+\def\K{{\bf K}}
+\def\H{{\bf H}}
+\def\I{{\bf I}}
+\def\L{{\bf L}}
+\def\M{{\bf M}}
+\def\m{{\bf m}}
+\def\n{{\bf n}}
+\def\N{{\bf N}}
+\def\BP{{\bf P}}
+\def\R{{\bf R}}
+\def\BS{{\bf S}}
+\def\s{{\bf s}}
+\def\t{{\bf t}}
+\def\T{{\bf T}}
+\def\U{{\bf U}}
+\def\u{{\bf u}}
+\def\V{{\bf V}}
+\def\v{{\bf v}}
+\def\W{{\bf W}}
+\def\w{{\bf w}}
+\def\X{{\bf X}}
+\def\Y{{\bf Y}}
+\def\Q{{\bf Q}}
+\def\x{{\bf x}}
+\def\y{{\bf y}}
+\def\Z{{\bf Z}}
+\def\z{{\bf z}}
+\def\0{{\bf 0}}
+\def\1{{\bf 1}}
+
+
+\def\hx{\hat{\bf x}}
+\def\tx{\tilde{\bf x}}
+\def\ty{\tilde{\bf y}}
+\def\tz{\tilde{\bf z}}
+\def\hd{\hat{d}}
+\def\HD{\hat{\bf D}}
+
+\def\MA{{\mathcal A}}
+\def\MF{{\mathcal F}}
+\def\MR{{\mathcal R}}
+\def\MG{{\mathcal G}}
+\def\MI{{\mathcal I}}
+\def\MN{{\mathcal N}}
+\def\MO{{\mathcal O}}
+\def\MT{{\mathcal T}}
+\def\MX{{\mathcal X}}
+\def\SW{{\mathcal {SW}}}
+\def\MW{{\mathcal W}}
+\def\MY{{\mathcal Y}}
+\def\BR{{\mathbb R}}
+\def\BP{{\mathbb P}}
+
+\def\bet{\mbox{\boldmath$\beta$\unboldmath}}
+\def\epsi{\mbox{\boldmath$\epsilon$}}
+
+\def\etal{{\em et al.\/}\,}
+\def\tr{\mathrm{tr}}
+\def\rk{\mathrm{rk}}
+\def\diag{\mathrm{diag}}
+\def\dg{\mathrm{dg}}
+\def\argmax{\mathop{\rm argmax}}
+\def\argmin{\mathop{\rm argmin}}
+\def\vecd{\mathrm{vec}}
+
+\def\ph{\mbox{\boldmath$\phi$\unboldmath}}
+\def\vp{\mbox{\boldmath$\varphi$\unboldmath}}
+\def\pii{\mbox{\boldmath$\pi$\unboldmath}}
+\def\Ph{\mbox{\boldmath$\Phi$\unboldmath}}
+\def\pss{\mbox{\boldmath$\psi$\unboldmath}}
+\def\Ps{\mbox{\boldmath$\Psi$\unboldmath}}
+\def\muu{\mbox{\boldmath$\mu$\unboldmath}}
+\def\Si{\mbox{\boldmath$\Sigma$\unboldmath}}
+\def\lam{\mbox{\boldmath$\lambda$\unboldmath}}
+\def\Lam{\mbox{\boldmath$\Lambda$\unboldmath}}
+\def\Gam{\mbox{\boldmath$\Gamma$\unboldmath}}
+\def\Oma{\mbox{\boldmath$\Omega$\unboldmath}}
+\def\De{\mbox{\boldmath$\Delta$\unboldmath}}
+\def\de{\mbox{\boldmath$\delta$\unboldmath}}
+\def\Tha{\mbox{\boldmath$\Theta$\unboldmath}}
+\def\tha{\mbox{\boldmath$\theta$\unboldmath}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{example}{Example}[section]
+
+\def\probin{\mbox{\rotatebox[origin=c]{90}{$\vDash$}}}
+
+\def\calA{{\cal A}}
+
+
+
+%this is a comment
+
+%use this as a template only... you may not need the subsections,
+%or lists however they are placed in the document to show you how
+%do it if needed.
+
+
+%THINGS TO REMEMBER
+%to compile a latex document - latex filename.tex
+%to view the document        - xdvi filename.dvi
+%to create a ps document     - dvips filename.dvi
+%to create a pdf document    - dvipdf filename.dvi
+%{\bf TEXT}                  - bold font TEXT
+%{\it TEXT}                  - italic TEXT
+%$ ... $                     - places ... in math mode on same line
+%$$ ... $$                   - places ... in math mode on new line
+%more info at www.cs.wm.edu/~mliskov/cs423_fall04/tex.html
+
+
+\setlength{\oddsidemargin}{.25in}
+\setlength{\evensidemargin}{.25in}
+\setlength{\textwidth}{6in}
+\setlength{\topmargin}{-0.4in}
+\setlength{\textheight}{8.5in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\notes}[5]{
+	\renewcommand{\thepage}{#1 - \arabic{page}}
+	\noindent
+	\begin{center}
+	\framebox{
+		\vbox{
+		\hbox to 5.78in { { \bf Numerical Linear Algebra}
+		\hfill #2}
+		\vspace{4mm}
+		\hbox to 5.78in { {\Large \hfill #5 \hfill} }
+		\vspace{2mm}
+		\hbox to 5.78in { {\it #3 \hfill #4} }
+		}
+	}
+	\end{center}
+	\vspace*{4mm}
+}
+
+\newcommand{\ho}[5]{\notes{#1}{}{Professor: Zhihua Zhang}{}{Lecture Notes #1:Singular Value Decomposition}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%begins a LaTeX document
+\setcounter{section}{0}
+\setcounter{subsection}{0}
+\setcounter{theorem}{0}
+\setcounter{definition}{0}
+\setcounter{example}{0}
+\begin{document}
+\ho{4}{2014.03.08}{Moses Liskov}{Name}{Lecture title}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%          Motivation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Motivation}
+Square matrix has eigenvalues, but rectangular matrix has not. Here is why singular value decomposition (SVD) comes.
+Consider $\A \in \BR^{m\times n}(m\geq n)$, rank$(\A)=k (k\leq n)$.
+\[ \A\A^T \Y = \Y\Lam, \]
+where $\Lam = \text{diag}(\lambda_1, ..., \lambda_k)$. 
+
+Let $\Z \triangleq \A^T\Y\Si^{-1/2}$, then $\Z^T\Z = \I_k$.
+From the definition of $\Z$, we can get $\text{span}(\Z) \subset \text{span}(\A^T)$. 
+$\A\Z = \Y\Lam^{1/2}$.
+Since $\text{rank}(\Z) = \text{rank}(\A)$, $\text{span}(\Z) = \text{span}(\A^T)$.
+Let $\Z_0$ in $\Z$'s complementary space, $\hat{\Z} = (\Z \quad \Z_0)$ and $\hat{\Z}^T\hat{\Z} = \hat{\Z}\hat{\Z}^T = \I_n$.
+\[ \A\hat{\Z} = (\A\Z \quad \A\Z_0) \quad\quad \A\Z_0 = \mathbf{0} \]
+\[ \A = \A\hat{\Z}\hat{\Z}^T = \Y\Lam^{1/2}\Z^T \]
+$\Y$ is a column-orthogonal matrix, $\Z$ is a column-orthogonal matrix and $\Lam^{1/2}$ is a diagonal matrix.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%          SVD theorem
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{SVD theorem}
+\begin{theorem}[SVD Theorem]
+ Let $\A \in \BR^{m\times n}(m\geq n)$ be a nonzero matrix, then there exist orthogonal matrices $\U = [\u_1, ..., \u_m] \in \BR^{m\times n}$
+ and $\V = [\v_1, ..., \v_n] \in \BR^{n \times n}$,
+ such that \[\U^T \A \V = \Si = \text{diag}(\sigma_1, ..., \sigma_p) \in \BR^{m \times n}, \]
+ where $p = \min\{m, n\}$ when $\sigma_1 \geq \sigma_2 \geq ... \geq \sigma_p \geq 0$.
+\end{theorem}
+
+\begin{proof}[Proof via induction] \hfill
+\begin{enumerate}
+ \item When $n=1$, it is surely correct.
+ \item Suppose the theorem holds when $\A \in \BR^{(m-1) \times (n-1)}$. 
+       Now consider $\A \in \BR^{m \times n}$.
+       If $\A = 0$, then it is correct.
+       If $\A \neq 0$, then $\sigma_1 = ||| \A |||_2 = \max_{||\v||_2 = 1} ||\A\v||_2 \neq 0$.
+       Let $\v_1 = \arg\max_{||\v||_2 = 1} ||\A\v||_2$, $\u_1 = \frac{\A\v_1}{\sigma_1}$.
+       Construct 
+       \[ \hat{\V} = \begin{bmatrix} \v_1, \V_1 \end{bmatrix} \quad\text{and}\quad \hat{\U} = \begin{bmatrix} \u_1, \U_1 \end{bmatrix}, \]
+       where $\U_1\U_1^T = \U_1^T\U_1 = \I_m$ and $\V_1\V_1^T = \V_1^T\V_1 = \I_n$. Then we have
+       \begin{eqnarray*}
+	  \hat{\U}^T \A \hat{\V} &=& \begin{bmatrix} \u_1^T\A\v_1 & \u_1^T\A\V_1 \\ \U_1^T\A\v_1 & \U_1^T\A\V_1 \end{bmatrix}.
+       \end{eqnarray*}
+       It is easy to note that $\U_1^T\A\v_1 = \sigma_1\U_1^T\u_1 = 0$. 
+       Let $\a = \u_1^T\A\V_1$, $\z = (\sigma_1 \quad \a^T)$, $\Y = \hat{\U}^T \A \hat{\V}$. Then we have
+       \[ \sigma_1 \sqrt{\sigma_1^2 + \a^T\a} \geq ||\Y||_2||\z||_2 \geq ||\Y\z||_2 = ||(\sigma_1^2 + ||\a_1||_2^2 \quad \a^T\V_1^T\A^T\U_1^T)^T||_2 \geq \sigma_1^2 + \a^T\a \]
+       Therefore, $\sigma_1 \sqrt{\sigma_1^2 + \a^T\a} \geq \sigma_1^2 + \a^T\a$, we can get $\a^T\a = 0$, i.e. $\a = 0$. So 
+       \[ \hat{\U}^T \A \hat{\V} = \begin{bmatrix} \sigma_1 & 0 \\ 0 & \U_1^T\A\V_1 \end{bmatrix} \].
+       Since $\U_1^T\A\V_1 \in \BR^{(m-1)\times(n-1)}$, there exist orthogonal $\hat{\U}_1$, $\hat{\V}_1$ and diagonal $\hat{\Sigma_1}$, such that $\U_1^T\A\V_1 = \hat{\U}_1 \hat{\Sigma}_1 \hat{\V}_1$.
+       Then one has 
+       \[ \A = \hat{\U} \begin{bmatrix} 1 & 0 \\ 0 & \hat{\U}_1 \end{bmatrix} \begin{bmatrix} \sigma_1 & 0 \\ 0 & \hat{\Si}_1 \end{bmatrix} \begin{bmatrix} 1 & 0 \\ 0 & \hat{\V_1} \end{bmatrix} \hat{\V}^T. \]
+       Both $\hat{\U} \begin{bmatrix} 1 & 0 \\ 0 & \hat{\U}_1 \end{bmatrix}$ and $\begin{bmatrix} 1 & 0 \\ 0 & \hat{\V_1} \end{bmatrix} \hat{\V}^T$ are orthogonal matrices,
+       so the theorem is correct.
+\end{enumerate}   
+\end{proof}
+
+\begin{proposition}[Unique problem]
+ If $\sigma_1 > \sigma_2 > ... > \sigma_p$, then there exists an unique SVD for $\A \in \BR^{m \times n}$.
+ Otherwise, suppose $\sigma_1 = \sigma_2 = ... \sigma_{i_1} > \sigma_{i_1+1} ... > \sigma_p > 0$, 
+ i.e. the number of $\sigma_{i_1}$ is $i_1$, the number of $\sigma_{i_2}$ is $i_2$, ..., the number of $\sigma_{i_k}$ is $i_k$.
+ Then we have
+ \[\begin{aligned} 
+    \A &= \U \begin{bmatrix} \sigma_{i_1}\I_{i_1} & & \\ & \ddots & \\ & & \sigma_{i_k}\I_{i_k} \end{bmatrix} \V^T  \\
+       &= \U \begin{bmatrix} \Q_1 & & \\ & \ddots & \\ & & \Q_k \end{bmatrix} \begin{bmatrix} \sigma_{i_1}\I_{i_1} & & \\ & \ddots & \\ & & \sigma_{i_k}\I_{i_k} \end{bmatrix} \begin{bmatrix} \Q_1^T & & \\ & \ddots & \\ & & \Q_k^T \end{bmatrix} \V^T,
+ \end{aligned}\]
+ where $Q_j$ is an orthogonal matrix in $\BR^{i_j\times i_j}$. 
+ 
+ Since  $\U\begin{bmatrix} \Q_1 & & \\ & \ddots & \\ & & \Q_k \end{bmatrix}$ and $\begin{bmatrix} \Q_1^T & & \\ & \ddots & \\ & & \Q_k^T \end{bmatrix} \V^T$ are still orthogonal matrices,
+ the SVD for $\A$ is not unique.
+ 
+\end{proposition}
+
+\end{document}
+
+
+
+
