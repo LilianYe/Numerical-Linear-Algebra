@@ -193,18 +193,37 @@
 
 \section{Motivation}
 Square matrix has eigenvalues, but rectangular matrix has not. Here is why singular value decomposition (SVD) comes.
-Consider $\A \in \BR^{m\times n}(m\geq n)$, rank$(\A)=k (k\leq n)$.
-\[ \A\A^T \Y = \Y\Lam, \]
-where $\Lam = \text{diag}(\lambda_1, ..., \lambda_k)$. 
+SVD is a more general decomposition than eigendecomposition.
 
-Let $\Z \triangleq \A^T\Y\Si^{-1/2}$, then $\Z^T\Z = \I_k$.
-From the definition of $\Z$, we can get $\text{span}(\Z) \subset \text{span}(\A^T)$. 
-$\A\Z = \Y\Lam^{1/2}$.
-Since $\text{rank}(\Z) = \text{rank}(\A)$, $\text{span}(\Z) = \text{span}(\A^T)$.
-Let $\Z_0$ in $\Z$'s complementary space, $\hat{\Z} = (\Z \quad \Z_0)$ and $\hat{\Z}^T\hat{\Z} = \hat{\Z}\hat{\Z}^T = \I_n$.
-\[ \A\hat{\Z} = (\A\Z \quad \A\Z_0) \quad\quad \A\Z_0 = \mathbf{0} \]
-\[ \A = \A\hat{\Z}\hat{\Z}^T = \Y\Lam^{1/2}\Z^T \]
-$\Y$ is a column-orthogonal matrix, $\Z$ is a column-orthogonal matrix and $\Lam^{1/2}$ is a diagonal matrix.
+\begin{theorem}[Existence]
+ $\A \in\BR^{m\times n}$ is a nonzero rank $k$ matrix, then $\A\A^T$ is a symmetrical matrix with rank $k$.
+ We have eigendecomposition
+ \[ \A\A^T \Y = \Y\Lam, \]
+ where $\Lam = \text{diag}(\lambda_1, ..., \lambda_k)$ and $\Y^T\Y = \I_k$.
+ Let $\Z=\A^T\Y\Lam^{-1/2}$, then 
+ \[ \A = \Y\Lam^{1/2}\Z^T, \]
+ which is called SVD decomposition.
+\end{theorem}
+
+\begin{proof} 
+ From the definition of $\Z$, we have $\Z^T\Z = \I_k$ and $\text{span}(\Z) = \text{span}(\A^T)$. 
+ Let $\Z_0$ in $\Z$'s complementary space, such that $\hat{\Z}=(\Z, \Z_0)$, $\hat{\Z}^T\hat{\Z} = \hat{\Z}\hat{\Z}^T = \I_n$.
+ Then we have
+ \[ \A = \A\hat{\Z}\hat{\Z}^T = (\A\Z, \A\Z_0)\hat{\Z}^T = \Y\Lam^{1/2}\Z^T \] 
+\end{proof}
+
+\begin{proposition}
+ Every matrix $\A \in \BR^{m \times n}$ has a SVD decomposition.
+\end{proposition}
+
+Three kinds of SVD decomposition:
+\begin{itemize}
+ \item $\A = \U\Si\V^T$ is called \textit{full SVD decomposition} if $\A\in\BR^{m \times n}$, $\U\in\BR^{m\times m}$, $\Si\in\BR^{m\times n}$, $\V\in\BR^{n\times n}$.
+ \item $\A = \U\Si\V^T$ is called \textit{condensed SVD decomposition} if rank$(A)=k$, $\A\in\BR^{m \times k}$, $\U\in\BR^{m\times k}$, $\Si\in\BR^{k\times k}$, $\V\in\BR^{k\times n}$.
+ \item $\A = \U\Si\V^T$ is called \textit{thin SVD decomposition} if $\A\in\BR^{m \times n}$, $\U\in\BR^{m\times n}$, $\Si\in\BR^{n\times n}$, $\V\in\BR^{n\times n}$.
+\end{itemize}
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -246,19 +265,25 @@ $\Y$ is a column-orthogonal matrix, $\Z$ is a column-orthogonal matrix and $\Lam
 \end{enumerate}   
 \end{proof}
 
-\begin{proposition}[Unique problem]
- If $\sigma_1 > \sigma_2 > ... > \sigma_p$, then there exists an unique SVD for $\A \in \BR^{m \times n}$.
- Otherwise, suppose $\sigma_1 = \sigma_2 = ... \sigma_{i_1} > \sigma_{i_1+1} ... > \sigma_p > 0$, 
- i.e. the number of $\sigma_{i_1}$ is $i_1$, the number of $\sigma_{i_2}$ is $i_2$, ..., the number of $\sigma_{i_k}$ is $i_k$.
- Then we have
- \[\begin{aligned} 
-    \A &= \U \begin{bmatrix} \sigma_{i_1}\I_{i_1} & & \\ & \ddots & \\ & & \sigma_{i_k}\I_{i_k} \end{bmatrix} \V^T  \\
-       &= \U \begin{bmatrix} \Q_1 & & \\ & \ddots & \\ & & \Q_k \end{bmatrix} \begin{bmatrix} \sigma_{i_1}\I_{i_1} & & \\ & \ddots & \\ & & \sigma_{i_k}\I_{i_k} \end{bmatrix} \begin{bmatrix} \Q_1^T & & \\ & \ddots & \\ & & \Q_k^T \end{bmatrix} \V^T,
- \end{aligned}\]
- where $Q_j$ is an orthogonal matrix in $\BR^{i_j\times i_j}$. 
- 
- Since  $\U\begin{bmatrix} \Q_1 & & \\ & \ddots & \\ & & \Q_k \end{bmatrix}$ and $\begin{bmatrix} \Q_1^T & & \\ & \ddots & \\ & & \Q_k^T \end{bmatrix} \V^T$ are still orthogonal matrices,
- the SVD for $\A$ is not unique.
+\begin{proposition}[Unique problem]\hfill
+ \begin{itemize}
+  \item If $\sigma_1 > \sigma_2 > ... > \sigma_p$, it is easy to know that the SVD for $\A$ is unique from the definition of the max eigenvalue, 
+  $\sigma_1 = \max_{\v_1} \frac{||\A\v_1||_2}{||\v_1||_2}$, $\u_1 = \frac{\A\v_1}{\sigma_1}$. 
+  From the proof above, we know that $\v_2$ and $\u_2$ are also unique, the same goes for $\v_3$, $\v_4$, ..., $\v_p$ and $\u_3$, $\u_4$ and $\u_p$.
+  \item
+  Otherwise, the SVD is not unique. Suppose $\sigma_1 = \sigma_2 = ... \sigma_{i_1} > \sigma_{i_1+1} ... > \sigma_p > 0$, 
+  i.e. the number of $\sigma_{i_1}$ is $i_1$, the number of $\sigma_{i_2}$ is $i_2$, ..., the number of $\sigma_{i_k}$ is $i_k$.
+  Then we have
+  \[\begin{aligned} 
+      \A &= \U \begin{bmatrix} \sigma_{i_1}\I_{i_1} & & \\ & \ddots & \\ & & \sigma_{i_k}\I_{i_k} \end{bmatrix} \V^T  \\
+	&= \U \begin{bmatrix} \Q_1 & & \\ & \ddots & \\ & & \Q_k \end{bmatrix} \begin{bmatrix} \sigma_{i_1}\I_{i_1} & & \\ & \ddots & \\ & & \sigma_{i_k}\I_{i_k} \end{bmatrix} \begin{bmatrix} \Q_1^T & & \\ & \ddots & \\ & & \Q_k^T \end{bmatrix} \V^T,
+  \end{aligned}\]
+  where $Q_j$ is an orthogonal matrix in $\BR^{i_j\times i_j}$. 
+  
+  Since  $\U\begin{bmatrix} \Q_1 & & \\ & \ddots & \\ & & \Q_k \end{bmatrix}$ and $\begin{bmatrix} \Q_1^T & & \\ & \ddots & \\ & & \Q_k^T \end{bmatrix} \V^T$ are still orthogonal matrices,
+  the SVD for $\A$ is not unique.
+ \end{itemize}
+
  
 \end{proposition}
 
