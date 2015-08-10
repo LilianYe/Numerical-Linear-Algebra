@@ -1,0 +1,316 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx} % more modern
+%\usepackage{times}
+\usepackage{helvet}
+\usepackage{courier}
+\usepackage{epsf}
+\usepackage{amsmath,amssymb,amsfonts,verbatim}
+\usepackage{subfigure}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{enumerate}
+%\usepackage{algorithmic}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsthm}
+
+\def\A{{\bf A}}
+\def\a{{\bf a}}
+\def\B{{\bf B}}
+\def\b{{\bf b}}
+\def\C{{\bf C}}
+\def\c{{\bf c}}
+\def\D{{\bf D}}
+\def\d{{\bf d}}
+\def\E{{\bf E}}
+\def\e{{\bf e}}
+\def\F{{\bf F}}
+\def\f{{\bf f}}
+\def\G{{\bf G}}
+\def\g{{\bf g}}
+\def\k{{\bf k}}
+\def\K{{\bf K}}
+\def\H{{\bf H}}
+\def\I{{\bf I}}
+\def\L{{\bf L}}
+\def\M{{\bf M}}
+\def\m{{\bf m}}
+\def\n{{\bf n}}
+\def\N{{\bf N}}
+\def\BP{{\bf P}}
+\def\R{{\bf R}}
+\def\BS{{\bf S}}
+\def\s{{\bf s}}
+\def\t{{\bf t}}
+\def\T{{\bf T}}
+\def\U{{\bf U}}
+\def\u{{\bf u}}
+\def\V{{\bf V}}
+\def\v{{\bf v}}
+\def\W{{\bf W}}
+\def\w{{\bf w}}
+\def\X{{\bf X}}
+\def\Y{{\bf Y}}
+\def\Q{{\bf Q}}
+\def\x{{\bf x}}
+\def\y{{\bf y}}
+\def\Z{{\bf Z}}
+\def\z{{\bf z}}
+\def\0{{\bf 0}}
+\def\1{{\bf 1}}
+
+
+\def\hx{\hat{\bf x}}
+\def\tx{\tilde{\bf x}}
+\def\ty{\tilde{\bf y}}
+\def\tz{\tilde{\bf z}}
+\def\hd{\hat{d}}
+\def\HD{\hat{\bf D}}
+
+\def\MA{{\mathcal A}}
+\def\MF{{\mathcal F}}
+\def\MR{{\mathcal R}}
+\def\MG{{\mathcal G}}
+\def\MI{{\mathcal I}}
+\def\MN{{\mathcal N}}
+\def\MO{{\mathcal O}}
+\def\MT{{\mathcal T}}
+\def\MX{{\mathcal X}}
+\def\SW{{\mathcal {SW}}}
+\def\MW{{\mathcal W}}
+\def\MY{{\mathcal Y}}
+\def\BR{{\mathbb R}}
+\def\BP{{\mathbb P}}
+
+\def\bet{\mbox{\boldmath$\beta$\unboldmath}}
+\def\epsi{\mbox{\boldmath$\epsilon$}}
+
+\def\etal{{\em et al.\/}\,}
+\def\tr{\mathrm{tr}}
+\def\rk{\mathrm{rk}}
+\def\diag{\mathrm{diag}}
+\def\dg{\mathrm{dg}}
+\def\argmax{\mathop{\rm argmax}}
+\def\argmin{\mathop{\rm argmin}}
+\def\vecd{\mathrm{vec}}
+
+\def\ph{\mbox{\boldmath$\phi$\unboldmath}}
+\def\vp{\mbox{\boldmath$\varphi$\unboldmath}}
+\def\pii{\mbox{\boldmath$\pi$\unboldmath}}
+\def\Ph{\mbox{\boldmath$\Phi$\unboldmath}}
+\def\pss{\mbox{\boldmath$\psi$\unboldmath}}
+\def\Ps{\mbox{\boldmath$\Psi$\unboldmath}}
+\def\muu{\mbox{\boldmath$\mu$\unboldmath}}
+\def\Si{\mbox{\boldmath$\Sigma$\unboldmath}}
+\def\lam{\mbox{\boldmath$\lambda$\unboldmath}}
+\def\Lam{\mbox{\boldmath$\Lambda$\unboldmath}}
+\def\Gam{\mbox{\boldmath$\Gamma$\unboldmath}}
+\def\Oma{\mbox{\boldmath$\Omega$\unboldmath}}
+\def\De{\mbox{\boldmath$\Delta$\unboldmath}}
+\def\de{\mbox{\boldmath$\delta$\unboldmath}}
+\def\Tha{\mbox{\boldmath$\Theta$\unboldmath}}
+\def\tha{\mbox{\boldmath$\theta$\unboldmath}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{example}{Example}[section]
+
+\def\probin{\mbox{\rotatebox[origin=c]{90}{$\vDash$}}}
+
+\def\calA{{\cal A}}
+
+
+
+%this is a comment
+
+%use this as a template only... you may not need the subsections,
+%or lists however they are placed in the document to show you how
+%do it if needed.
+
+
+%THINGS TO REMEMBER
+%to compile a latex document - latex filename.tex
+%to view the document        - xdvi filename.dvi
+%to create a ps document     - dvips filename.dvi
+%to create a pdf document    - dvipdf filename.dvi
+%{\bf TEXT}                  - bold font TEXT
+%{\it TEXT}                  - italic TEXT
+%$ ... $                     - places ... in math mode on same line
+%$$ ... $$                   - places ... in math mode on new line
+%more info at www.cs.wm.edu/~mliskov/cs423_fall04/tex.html
+
+
+\setlength{\oddsidemargin}{.25in}
+\setlength{\evensidemargin}{.25in}
+\setlength{\textwidth}{6in}
+\setlength{\topmargin}{-0.4in}
+\setlength{\textheight}{8.5in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\notes}[5]{
+	\renewcommand{\thepage}{#1 - \arabic{page}}
+	\noindent
+	\begin{center}
+	\framebox{
+		\vbox{
+		\hbox to 5.78in { { \bf Numerical Linear Algebra}
+		\hfill #2}
+		\vspace{4mm}
+		\hbox to 5.78in { {\Large \hfill #5 \hfill} }
+		\vspace{2mm}
+		\hbox to 5.78in { {\it #3 \hfill #4} }
+		}
+	}
+	\end{center}
+	\vspace*{4mm}
+}
+
+\newcommand{\ho}[5]{\notes{#1}{}{Professor: Zhihua Zhang}{}{Lecture Notes #1:Applications}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%begins a LaTeX document
+\setcounter{section}{0}
+\setcounter{subsection}{0}
+\setcounter{theorem}{0}
+\setcounter{definition}{0}
+\setcounter{example}{0}
+\begin{document}
+\ho{6}{2014.03.08}{Moses Liskov}{Name}{Lecture title}
+
+
+\begin{theorem}
+ If $A$ and $B$ are $n \times n$ matrices, then 
+ \begin{itemize}
+  \item $\sigma(A+B) \prec_w \sigma(A) + \sigma(B)$ 
+  \item $\sum_{i=1}^k \sigma_i(A) - \sum_{i=1}^k \sigma_{n-i+1}(B)$, $k=1,...,n$
+  \item If $A = [A_1, A_2]$, $A_1\in\BR^{n\times p}$, $A_2 \in \BR^{n\times(n-p)}$, and $B = [A_1, 0]$, then $\sigma(A) \succ_w \sigma(B)$.
+ \end{itemize}
+\end{theorem}
+
+\begin{definition}
+ A real-valued function $\|\cdot\|$ on $\BR^{m\times n}$ is called a unitarily invariant norm if the following conditions are satisfied 
+ \begin{enumerate}
+  \item $\|X\| > 0$, $X \neq 0$
+  \item $\|\alpha X\| = |\alpha| \|X\|$
+  \item $\|X + Y\| \leq \|X\| + \| Y \|$
+  \item $\|XV\| = \|UX\| = \|X\|$. Here $U$ and $V$ are any unitary matrix.
+ \end{enumerate}
+\end{definition}
+
+Conduct SVD decomposition $X = U\Sigma V^T$, then we have
+\begin{itemize}
+ \item $\|X\| = \|U\Sigma V^T\| = \|\Sigma\| = \|\sigma(X)\|$
+ \item $\|\sigma(X)\|_2 = \|X\|_F$
+ \item $\|\sigma(X)\|_\infty = |||X|||_2$.
+\end{itemize}
+
+\begin{theorem}
+ Let $A$ and $B$ be $m\times n$ matrices, then for all $n\times n$ matrices $X$,
+ \[ \|A(A^\dagger B) - B\| \leq \| AX - B \| \]
+ for every unitarily invariant norm $\|\cdot\|$.
+\end{theorem}
+\begin{proof}
+ Here is an easy proof from symmetric gauge function.
+ \begin{equation*}
+  \begin{split}
+	A^\dagger B &= \underset{X\in\BR^{n\times n}}{\arg\min} \|AX - B\| \\
+				&\Leftrightarrow \phi(\sigma(AA^\dagger B - B )) \leq \phi(\sigma(AX - B)) \\
+				&\Leftrightarrow \sigma(AA^\dagger B - B ) \prec_w \sigma(AX - B) 
+  \end{split}
+ \end{equation*}
+	Define $L = AX - B$, $P = AX - AA^\dagger B$, $Q = AA^\dagger B - B$. It is easy to verify $L = P + Q$ and $P^T Q = 0$.
+	Thus we have 
+	\[ L^T L = P^TP + Q^T Q, \]
+	which indicates that $\lambda_i(L^T L) \leq \lambda_i(Q^T Q) \Leftrightarrow \sigma_i(L) \leq \sigma_i(Q)$.
+\end{proof}
+
+
+
+\begin{theorem}[Eckart and Young 1936, Minksy 1960]
+ Let $A$ be an $m\times n$ matrix of rank $r$. Let $A = U_A \Sigma_S V_A^T$ be the full SVD and let $k \leq r$. 
+ Define $A_k = U_{A,k} \Sigma_{A,k} V_{A,k}^T$.
+ Then $\|A - A_k\| \leq \|A - X\|$ for all $m\times n$ matrices $X$ of rank $k$ and every unitarily invariant norm.
+\end{theorem}
+
+\section{Subgradient of Matrix}
+
+Let us consider an optimization problem,
+\[ \min f(X) \triangleq \|A - X\|_F^2 + \lambda \| X \|_*. \]
+
+First, let us review the gradient of scalar value and vector,
+\begin{itemize}
+\item $f : \BR \to \BR$, $\partial f(x) = \{ z \in \BR : f(y) \geq f(x) + (y-x)z \quad \forall y\in\BR \}$ 
+\item $f : \BR^n \to \BR$, $\partial f(x) = \{z\in\BR^n: f(y) \geq f(x) + (y-x)^Tz\quad\forall y\in\BR^n\}$
+\end{itemize}
+
+\begin{definition}
+ Let $\|\cdot\|$ be a norm on $\BR^{m \times n}$ real-value matrix, and $A \in \BR^{m \times n}$.
+ Then subgradient of $\|A\|$ is defined by 
+ \[ \partial \|A\| = \{G\in\BR^{m \times n} : \|B\| \geq \|A\| + tr((B-A)^TG) \quad \forall B\in\BR^{m \times n} \} \].
+\end{definition}
+
+\begin{lemma}
+ $G \in \partial \|A\|$ is equivalent to that 
+\begin{enumerate}
+	\item $\|A\| = tr(G^TA)$
+	\item $\|G\|_D \leq 1$
+\end{enumerate}
+\end{lemma}
+\begin{proof}(Not complete)
+  If $G\in\partial \|A\|$, then $\forall B\in \BR^{m \times n}$, $\|B\| \geq \|A\| + tr((B-A)^T G)$.
+  Let $B = 2A$, then we have 
+  \[ 2\|A\| \geq \|A\| + tr(A^T G) \implies \|A\| \geq tr(A^T G). \]
+  Let $B = \frac{1}{2}A$, then we have $ \|A\| \leq tr(A^T G) $ similarily. Then we get $ \|A\| = tr(G^TA) $.
+  This implies that 
+  \[ tr(B^T G) \leq \|B\| \quad \forall B. \]
+  Then we have
+  \[ \|G\|_D = \max_{\|Z\| = 1} tr(G^TZ) \leq \|Z\| = 1.\]
+  
+  Next we prove another direction.
+  $\|\cdot\|$ is a unitarily invariant norm, then there exists a symmetric gauge function $\phi(\sigma(A)) = \|A\|$.\newline
+  $ Z \in \partial \phi(X)$ is equivalent to 
+  \begin{enumerate}
+   \item $\phi(x) = x^T z$
+   \item $\phi^*(z) \leq 1$, where $\phi*(z) = \max_{\phi(y) = 1} z^Ty$.
+  \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+ Let $\|\cdot\|$ be unitarily invariant norm on $\BR^{m \times n}$, $D = diag(\vec{d})$ and $\vec{d} = dg(D)$.
+ Then $\partial \|A\| = conv\{ UDV^T : A = U\Sigma V^T, \vec{d} \in \partial \phi(\vec{\sigma}) \}$. 
+\end{theorem}
+
+% \begin{proof}
+% 	If $G \in \partial\|A\|$, then $G = \sum \lambda_i U_i D_i V_i^T$. It is equivalent to prove 
+%   $tr(G^T A) = \|A\|$ and $\|G\|_D \leq 1$.
+%   
+%   \begin{equation*}
+%   \begin{split}
+%    tr(G^TA) 	&= tr(A^T \sum \lambda_iU_iD_i V_i^T)  \\
+% 				&= tr(A^T \sum \lambda_i U P_i D_i P_i^T V^T)  \\
+% 				&= tr(V\Sigma U^T \sum \lambda_i U P_i D_i P_i^T V^T)  \\
+% 				&= tr( \Sigma \sum \lambda_i P_i D_i P_i^T )\\
+% 				&= \sum tr(\Sigma \lambda_i P_i D_i P_i^T) \\
+% 				&= \sum \lambda_i tr(\Sigma D_i) \\
+% 				&= \sum \lambda_i \vec{\sigma}^T \vec{d_i} \\
+% 				&= \sum \lambda_i \phi(\sigma)
+%    \end{split}
+%   \end{equation*}
+% 
+%   
+%   
+%   
+% 
+% \end{proof}
+
+
+\end{document}
